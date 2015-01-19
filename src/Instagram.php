@@ -154,8 +154,17 @@ class Instagram {
    * @param integer [optional] $limit     Limit of returned results
    * @return mixed
    */
-  public function getUserMedia($id = 'self', $limit = 0) {
-    return $this->_makeCall('users/' . $id . '/media/recent', ($id === 'self'), array('count' => $limit));
+  public function getUserMedia($id = 'self', $limit = 0, $minTimestamp = 0) {
+    
+    $params = [];
+    
+    if($limt)
+        $params['count'] = $limit;
+        
+    if($minTimestamp)
+        $params['min_timestamp'] = $minTimestamp;
+    
+    return $this->_makeCall('users/' . $id . '/media/recent', ($id === 'self'), $params);
   }
 
   /**
@@ -274,8 +283,17 @@ class Instagram {
    * @param integer [optional] $limit     Limit of returned results
    * @return mixed
    */
-  public function getTagMedia($name, $limit = 0) {
-    return $this->_makeCall('tags/' . $name . '/media/recent', false, array('count' => $limit));
+  public function getTagMedia($name, $limit = 0, $minTimestamp = 0) {
+      
+    $params = [];
+    
+    if($limt)
+        $params['count'] = $limit;
+        
+    if($minTimestamp)
+        $params['min_timestamp'] = $minTimestamp;
+        
+    return $this->_makeCall('tags/' . $name . '/media/recent', false, $params);
   }
 
   /**
