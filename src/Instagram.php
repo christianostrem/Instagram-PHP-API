@@ -158,7 +158,7 @@ class Instagram {
     
     $params = [];
     
-    if($limt)
+    if($limit)
         $params['count'] = $limit;
         
     if($minTimestamp)
@@ -287,7 +287,7 @@ class Instagram {
       
     $params = [];
     
-    if($limt)
+    if($limit)
         $params['count'] = $limit;
         
     if($minTimestamp)
