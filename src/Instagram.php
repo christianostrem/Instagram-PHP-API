@@ -154,12 +154,15 @@ class Instagram {
    * @param integer [optional] $limit     Limit of returned results
    * @return mixed
    */
-  public function getUserMedia($id = 'self', $limit = 0, $minTimestamp = 0) {
+  public function getUserMedia($id = 'self', $limit = 0, $minId = false, $minTimestamp = false) {
     
     $params = [];
     
     if($limit)
         $params['count'] = $limit;
+        
+    if($minId)
+        $params['min_id'] = $minId;
         
     if($minTimestamp)
         $params['min_timestamp'] = $minTimestamp;
@@ -283,12 +286,15 @@ class Instagram {
    * @param integer [optional] $limit     Limit of returned results
    * @return mixed
    */
-  public function getTagMedia($name, $limit = 0, $minTimestamp = 0) {
+  public function getTagMedia($name, $limit = 0, $minId = false, $minTimestamp = false) {
       
     $params = [];
     
     if($limit)
         $params['count'] = $limit;
+        
+    if($minId)
+        $params['min_id'] = $minId;
         
     if($minTimestamp)
         $params['min_timestamp'] = $minTimestamp;
